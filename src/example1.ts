@@ -100,3 +100,92 @@ function printName(x: string, y?: string): void {
 }
 
 printName("Aiswarya", "R");
+
+// create an interface for an object
+// it should accept a title string
+// it should accept a status boolean
+// it should accept an id number
+
+interface dataTypes {
+  title: string;
+  status: boolean;
+  id: number;
+}
+
+// create a function getName
+// it should accept an object firstname and lastname
+// it should return fullname
+// keep lastname optional.
+// if lastname does not exist then return only firstname
+// make a interface for it
+
+interface fullName {
+  firstname: string;
+  lastname?: string;
+}
+
+function getName(props: fullName): string {
+  if (props.lastname) return props.firstname + " " + props.lastname;
+  else return props.firstname;
+}
+let obj = { firstname: "Aiswarya" };
+let obj2 = { firstname: "Aiswarya", lastname: "R" };
+console.log(getName(obj));
+console.log(getName(obj2));
+
+// create an interface Address
+// it takes
+// houseNumber
+// street
+// city
+// state
+// postalCode
+// country
+// add appropriate types
+
+interface Address {
+  houseNumber: string | number;
+  street: string, 
+  city: string, 
+  state: string, 
+  postalCode:number,
+  country: string
+}
+
+// create a PersonDetails interface
+// it should have
+// Prefix optional
+// phones array of numbers
+// addresses array of Addresses
+// email optional
+// firstname
+// lastname
+// middlename optional
+
+interface PersonDetails{
+  prefix?: string, 
+  phones:string[],
+  address : string[],
+  email?:string, 
+  firstname: string, 
+  lastname: string,
+  middlename?: string
+}
+
+
+// create a function PhoneBook
+// it should accept PersonDetails type argument
+// it should push into an array containing all persons
+
+var Persons : Array<PersonDetails> = [];
+
+function PhoneBook(props:PersonDetails){
+  Persons.push(props);
+}
+
+var p1 = {prefix:"Ms" ,phones:['9562152083','9048934825'],address:["Palakkad"],firstname:"Aiswarya", lastname:"R"}
+
+PhoneBook(p1);
+
+console.log(Persons);
+

@@ -15,3 +15,46 @@ declare const p = UserPrivileges.SUPER_ADMIN;
 declare function product(x: number, y: number): number;
 declare function divide(x: number, y: number): number;
 declare function printName(x: string, y?: string): void;
+interface dataTypes {
+    title: string;
+    status: boolean;
+    id: number;
+}
+interface fullName {
+    firstname: string;
+    lastname?: string;
+}
+declare function getName(props: fullName): string;
+declare let obj: {
+    firstname: string;
+};
+declare let obj2: {
+    firstname: string;
+    lastname: string;
+};
+interface Address {
+    houseNumber: string | number;
+    street: string;
+    city: string;
+    state: string;
+    postalCode: number;
+    country: string;
+}
+interface PersonDetails {
+    prefix?: string;
+    phones: string[];
+    address: string[];
+    email?: string;
+    firstname: string;
+    lastname: string;
+    middlename?: string;
+}
+declare var Persons: Array<PersonDetails>;
+declare function PhoneBook(props: PersonDetails): void;
+declare var p1: {
+    prefix: string;
+    phones: string[];
+    address: string[];
+    firstname: string;
+    lastname: string;
+};
