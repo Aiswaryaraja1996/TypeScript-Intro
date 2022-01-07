@@ -69,3 +69,23 @@ function printName(x, y) {
     console.log(x + " " + y);
 }
 printName("Aiswarya", "R");
+function getName(props) {
+    if (props.lastname)
+        return props.firstname + " " + props.lastname;
+    else
+        return props.firstname;
+}
+var obj = { firstname: "Aiswarya" };
+var obj2 = { firstname: "Aiswarya", lastname: "R" };
+console.log(getName(obj));
+console.log(getName(obj2));
+// create a function PhoneBook
+// it should accept PersonDetails type argument
+// it should push into an array containing all persons
+var Persons = [];
+function PhoneBook(props) {
+    Persons.push(props);
+}
+var p1 = { prefix: "Ms", phones: ['9562152083', '9048934825'], address: ["Palakkad"], firstname: "Aiswarya", lastname: "R" };
+PhoneBook(p1);
+console.log(Persons);
