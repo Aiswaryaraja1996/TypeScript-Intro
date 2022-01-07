@@ -86,6 +86,31 @@ var Persons = [];
 function PhoneBook(props) {
     Persons.push(props);
 }
-var p1 = { prefix: "Ms", phones: ['9562152083', '9048934825'], address: ["Palakkad"], firstname: "Aiswarya", lastname: "R" };
+var p1 = {
+    prefix: "Ms",
+    phones: ["9562152083", "9048934825"],
+    address: ["Palakkad"],
+    firstname: "Aiswarya",
+    lastname: "R"
+};
 PhoneBook(p1);
 console.log(Persons);
+var persons = [
+    {
+        type: "user",
+        name: "Aiswarya",
+        age: 25,
+        occupation: "NA"
+    },
+    { type: "admin", name: "Aiswarya", age: 25, role: "NA" },
+];
+function isAdmin(person) {
+    return person.type === "admin";
+}
+function isUser(person) {
+    return person.type === "user";
+}
+console.log(isAdmin(persons[1]));
+console.log(isUser(persons[0]));
+console.log(isAdmin(persons[0]));
+console.log(isUser(persons[1]));

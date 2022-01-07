@@ -145,11 +145,11 @@ console.log(getName(obj2));
 
 interface Address {
   houseNumber: string | number;
-  street: string, 
-  city: string, 
-  state: string, 
-  postalCode:number,
-  country: string
+  street: string;
+  city: string;
+  state: string;
+  postalCode: number;
+  country: string;
 }
 
 // create a PersonDetails interface
@@ -162,30 +162,76 @@ interface Address {
 // lastname
 // middlename optional
 
-interface PersonDetails{
-  prefix?: string, 
-  phones:string[],
-  address : string[],
-  email?:string, 
-  firstname: string, 
-  lastname: string,
-  middlename?: string
+interface PersonDetails {
+  prefix?: string;
+  phones: string[];
+  address: string[];
+  email?: string;
+  firstname: string;
+  lastname: string;
+  middlename?: string;
 }
-
 
 // create a function PhoneBook
 // it should accept PersonDetails type argument
 // it should push into an array containing all persons
 
-var Persons : Array<PersonDetails> = [];
+var Persons: Array<PersonDetails> = [];
 
-function PhoneBook(props:PersonDetails){
+function PhoneBook(props: PersonDetails) {
   Persons.push(props);
 }
 
-var p1 = {prefix:"Ms" ,phones:['9562152083','9048934825'],address:["Palakkad"],firstname:"Aiswarya", lastname:"R"}
+var p1 = {
+  prefix: "Ms",
+  phones: ["9562152083", "9048934825"],
+  address: ["Palakkad"],
+  firstname: "Aiswarya",
+  lastname: "R",
+};
 
 PhoneBook(p1);
 
 console.log(Persons);
 
+//Write a function to retrieve the type of the user or admin
+
+interface User {
+  type: "user";
+  name: string;
+  age: number;
+  occupation: string;
+}
+
+interface Admin {
+  type: "admin";
+  name: string;
+  age: number;
+  role: string;
+}
+
+type per = User | Admin;
+
+const persons: per[] = [
+  {
+    type: "user",
+    name: "Aiswarya",
+    age: 25,
+    occupation: "NA",
+  },
+  { type: "admin", name: "Aiswarya", age: 25, role: "NA" },
+];
+
+function isAdmin(person: per) {
+  return person.type === "admin";
+}
+
+function isUser(person: per) {
+  return person.type === "user";
+}
+
+
+console.log(isAdmin(persons[1]))
+console.log(isUser(persons[0]))
+console.log(isAdmin(persons[0]))
+console.log(isUser(persons[1]))

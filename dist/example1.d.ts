@@ -58,3 +58,19 @@ declare var p1: {
     firstname: string;
     lastname: string;
 };
+interface User {
+    type: "user";
+    name: string;
+    age: number;
+    occupation: string;
+}
+interface Admin {
+    type: "admin";
+    name: string;
+    age: number;
+    role: string;
+}
+declare type per = User | Admin;
+declare const persons: per[];
+declare function isAdmin(person: per): boolean;
+declare function isUser(person: per): boolean;
